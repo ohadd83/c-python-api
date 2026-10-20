@@ -3,7 +3,6 @@ pipeline {
 	agent any
 
 	environment {
-	APP_PORT={8080}
         APP_NAME= "c-api"
 	IMAGE_NAME= 'ohad306/c-api'
 	IMAGE_TAG="${BUILD_NUMBER}"
@@ -26,6 +25,7 @@ pipeline {
                    python3 -m pytest -v
                 ''' 
 		}
+	               }
             stage('build docker iamge') {
 		steps {
 		   echo "build docker image"
