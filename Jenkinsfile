@@ -54,7 +54,7 @@ pipeline {
 		       
 		 '''
 
-		}
+		
 
 		post {
 		alwayes {
@@ -63,7 +63,7 @@ pipeline {
                 docker rm -f ${app_name}-test  || true
                 '''  
 		}
-
+		    }
              
 		}
 
@@ -120,7 +120,7 @@ pipeline {
 	        docker stop ${APP_NAME}-stg || true
 		docker rm  ${APP_NAME}-stg || true
 		docker pull ${IMAGE_NAME}:${IMAGE_TAG}
-		dokcer run -d  --name ${APP_NAME}-stg -p 8001:8000  ${IMAGE_NAME}:${IMAGE_TAG}
+		docker run -d  --name ${APP_NAME}-stg -p 8001:8000  ${IMAGE_NAME}:${IMAGE_TAG}
 	''' 	
 	}
 
