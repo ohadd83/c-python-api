@@ -73,7 +73,7 @@ pipeline {
 	stage ('security scan') {
 		steps {
                     sh ''' 
-			trivy image --sevirity HIGH --ignore-unfixed --exit-code 1 ${IMAGE_NAME}":${IMAGE_TAG}
+			trivy image --severity HIGH --ignore-unfixed --exit-code 1 ${IMAGE_NAME}":${IMAGE_TAG}
 		'''
 		}
 
