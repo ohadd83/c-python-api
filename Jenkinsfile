@@ -39,7 +39,7 @@ pipeline {
 	       steps { 
 		  echo "test docker image"
 		  sh '''
-			docker run -d --name ${APP_NAME}-test -p 8000:8001 ${IMAGE_NAME}:${IMAGE_TAG}
+			docker run -d --name ${APP_NAME}-test -p 8001:8000 ${IMAGE_NAME}:${IMAGE_TAG}
 		'''
 
               echo "wait for app "
