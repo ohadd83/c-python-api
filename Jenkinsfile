@@ -67,7 +67,7 @@ pipeline {
              
 		}
 
-}
+	}
 
 
 	stage ('security scan') {
@@ -131,5 +131,6 @@ pipeline {
 
 
 
+	}
 }
 
