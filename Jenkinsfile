@@ -34,7 +34,7 @@ pipeline {
 		'''
 		}
 		}
-}
+
 	    stage('test docker image')  {
 	       steps { 
 		  echo "test docker image"
