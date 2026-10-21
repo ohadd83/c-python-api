@@ -4,7 +4,7 @@ pipeline {
 
 	environment {
         APP_NAME= "c-api"
-	IMAGE_NAME= 'ohad306/c-api'
+	IMAGE_NAME= 'ohadd306/c-api'
 	IMAGE_TAG="${BUILD_NUMBER}"
 
 	}
