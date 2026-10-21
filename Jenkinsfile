@@ -61,7 +61,7 @@ pipeline {
 		   always {
                    echo "remove docker container test"
                        sh ''' 
-                       docker rm -f ${app_name}-test  || true
+                       docker rm -f ${APP_NAME}-test  || true
                    '''  
 		   }
 		}
