@@ -42,7 +42,9 @@ pipeline {
 			docker run -d --name ${APP_NAME}-test -p 8002:8000 ${IMAGE_NAME}:${IMAGE_TAG}
 		'''
 
-              echo "wait for app "
+              echo 
+
+"wait for app "
 	      sleep 5
               echo "test application health"
               
@@ -127,7 +129,19 @@ pipeline {
 
 	}
 
+          echo "wait for app to start"
+          sleep 5 
+          echo "test stg application"
+          
+	  sh '''
+             curl -f http://localhost:8001/health
+             curl -f http://localhost:8001/products/1
+             curl - f -X post -H "Content-Type: application/json" -d '{"product_id":1,"quantity":3}' http://localhost:8001/orders
 
+
+
+
+          '''
 
 
 	}
