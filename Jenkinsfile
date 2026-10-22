@@ -48,9 +48,9 @@ pipeline {
               
                  echo "test docker image"
                  sh '''
-			curl -f http://localhost:8001/health
-                        curl -f http://localhost:8001/products/1
-                        curl -f  -X POST  -H "Content-Type: application/json" -d '{"product_id":1,"quantity":3}' http://localhost:8001/orders/
+			curl -f http://localhost:8002/health
+                        curl -f http://localhost:8002/products/1
+                        curl -f  -X POST  -H "Content-Type: application/json" -d '{"product_id":1,"quantity":3}' http://localhost:8002/orders/
 		       
 		 '''
          } 
