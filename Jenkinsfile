@@ -57,10 +57,10 @@ pipeline {
 
 		
 
-	       post {
-		   always {
+	    post {
+		always {
                    echo "remove docker container test"
-                       sh ''' 
+                   sh ''' 
                        docker rm -f ${APP_NAME}-test  || true
                    '''  
 		   }
