@@ -128,7 +128,9 @@ pipeline {
 
 
 	}
-
+        
+        stage ("test stg app")  {
+           steps {
           echo "wait for app to start"
           sleep 5 
           echo "test stg application"
@@ -137,8 +139,8 @@ pipeline {
              curl -f http://localhost:8001/health
              curl -f http://localhost:8001/products/1
              curl - f -X post -H "Content-Type: application/json" -d '{"product_id":1,"quantity":3}' http://localhost:8001/orders
-
-         
+           }
+         }
 
 
           '''
