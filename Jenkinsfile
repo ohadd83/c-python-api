@@ -42,9 +42,7 @@ pipeline {
 			docker run -d --name ${APP_NAME}-test -p 8002:8000 ${IMAGE_NAME}:${IMAGE_TAG}
 		'''
 
-              echo 
-
-"wait for app "
+              echo "wait for app "
 	      sleep 5
               echo "test application health"
               
