@@ -139,20 +139,9 @@ pipeline {
              curl -f -X POST -H "Content-Type: application/json" -d '{"product_id":1,"quantity":3}' http://localhost:8001/orders/
           '''
             }
-         
+         } 
 
-         post {
-             always {
-             echo "remove stg container"
-             sh '''
-		docker stop ${APP_NAME}-stg || true
-                docker rm ${APP_NAME}-stg || true
-             '''
-	     }
-
-
-         }
-	}
+	
 
           
 
