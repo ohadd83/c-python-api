@@ -163,10 +163,14 @@ pipeline {
                 	for i in $(seq 1 5); do 
 			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
-                             if curl -fsS http://localhost:8000/products/1; then
-                                echo "products check passed"
-                                exit 0
-			     fi 
+                             	if curl -fsS http://localhost:8000/products/1; then
+                                	echo "healthcheck and products check passed"
+                                	exit 0
+				else 
+				   echo "products endpoint not ready yet "
+			        
+				fi 
+                              else 
                                  echo "after test attempt $i app not ready yet "
                                  echo "wait for app"
 				 sleep 5
