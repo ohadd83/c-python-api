@@ -157,11 +157,11 @@ pipeline {
 	stage ("test prd health") {
 	   steps {
                 echo "wait for application to start"
-		sleep 5
+		sleep 2
 		echo "test production health"
 		sh '''
-                	for i in $(seq 1 5); do 
-			     if curl -fsS http://localhost:8006/health; then
+                	for i in $(seq 1 3); do 
+			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
                              	if curl -fsS http://localhost:8006/products/123; then
                                 	echo "healthcheck and products check passed"
@@ -173,7 +173,7 @@ pipeline {
                              else 
                                  echo "after test attempt $i app not ready yet "
                                  echo "wait for app"
-				 sleep 5
+				 sleep 2
 				fi
                         done
                          
