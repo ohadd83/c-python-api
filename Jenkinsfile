@@ -145,10 +145,10 @@ pipeline {
 	    steps  {
 		echo "deploy on prd"
 		sh '''
-		docker stop ${APP_NAME} || true 
-                docker rm ${APP_NAME} || true
+		docker stop ${APP_NAME}   || true 
+                docker rm ${APP_NAME} 2>/dev/null || true
                 docker pull ${IMAGE_NAME}:${IMAGE_TAG}
-		docker run -d --name ${APP_NAME} -p 8000:8000 ${IMAGE_NAME}:{IMAGE_TAG} 
+		docker run -d --name ${APP_NAME} -p 8000:8000 ${IMAGE_NAME}:${IMAGE_TAG} 
 		'''
 
 	}
