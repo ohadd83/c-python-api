@@ -151,8 +151,10 @@ pipeline {
 		docker run -d --name ${APP_NAME} -p 8000:8000 ${IMAGE_NAME}:${IMAGE_TAG} 
 		'''
 
-	}
-	   steps {
+	        }
+        }
+	stage("test prd health") {
+	   stpes {
 		echo "test production health"
 		sh '''
                    curl -f http://localhost:8000/health
