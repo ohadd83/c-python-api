@@ -153,6 +153,8 @@ pipeline {
 
 	        }
         }
+        sleep 5
+        
 	stage ("test prd health") {
 	   steps {
 		echo "test production health"
