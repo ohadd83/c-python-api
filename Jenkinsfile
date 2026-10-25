@@ -161,9 +161,9 @@ pipeline {
 		echo "test production health"
 		sh '''
                 	for i in $(seq 1 5); do 
-			     if curl -fsS http://localhost:8000/health; then
+			     if curl -fsS http://localhost:8006/health; then
 				echo "health check test passed "
-                             	if curl -fsS http://localhost:8000/products/123; then
+                             	if curl -fsS http://localhost:8006/products/123; then
                                 	echo "healthcheck and products check passed"
                                 	exit 0
 				else 
