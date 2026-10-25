@@ -152,7 +152,12 @@ pipeline {
 		'''
 
 	}
-
+	   steps {
+		echo "test production health"
+		sh '''
+                   curl -f http://localhost:8000/health
+                '''
+	   }
 	}
 
           
