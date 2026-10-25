@@ -142,13 +142,13 @@ pipeline {
          }
 
          post {
-             echo "remove stg container"
              always {
+             echo "remove stg container"
              sh '''
 		docker stop ${APP_NAME}-stg || true
                 docker rm ${APP_NAME}-stg || true
              '''
-	}
+	     }
 
 
          }
