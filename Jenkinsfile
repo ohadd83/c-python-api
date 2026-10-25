@@ -153,7 +153,7 @@ pipeline {
 
 	        }
         }
-	stage("test prd health") {
+	stage ("test prd health") {
 	   stpes {
 		echo "test production health"
 		sh '''
