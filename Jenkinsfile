@@ -154,7 +154,7 @@ pipeline {
 	        }
         }
 	stage ("test prd health") {
-	   stpes {
+	   steps {
 		echo "test production health"
 		sh '''
                    curl -f http://localhost:8000/health
