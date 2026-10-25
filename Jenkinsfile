@@ -174,6 +174,7 @@ pipeline {
                                  echo "after test attempt $i app not ready yet "
                                  echo "wait for app"
 				 sleep 5
+				fi
                         done
                          
                         echo "http health check failed"
