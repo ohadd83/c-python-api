@@ -163,7 +163,7 @@ pipeline {
                 	for i in $(seq 1 5); do 
 			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
-                             if curl -fsS http://localhost:8000/products/1
+                             if curl -fsS http://localhost:8000/products/1; then
                                 echo "products check passed"
                                 exit 0
 			     fi 
