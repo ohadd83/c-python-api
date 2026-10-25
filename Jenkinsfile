@@ -160,7 +160,7 @@ pipeline {
 		sleep 5
 		echo "test production health"
 		sh '''
-                	for i in (seq 1 5); do 
+                	for i in $(seq 1 5); do 
 			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
                                 exit 0
