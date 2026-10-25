@@ -153,10 +153,11 @@ pipeline {
 
 	        }
         }
-        sleep 5
         
 	stage ("test prd health") {
 	   steps {
+                echo "wait for application to start"
+		sleep 5
 		echo "test production health"
 		sh '''
                    curl -f http://localhost:8000/health
