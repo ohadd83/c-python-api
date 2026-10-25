@@ -160,7 +160,20 @@ pipeline {
 		sleep 5
 		echo "test production health"
 		sh '''
-                   curl -f http://localhost:8000/health
+                	for i in (seq 1 5); do 
+			     if curl -fsS http://localhost:8000/health ; then
+				echo "health check test passed "
+                                exit 0
+			     fi 
+                             else
+                                 echo "after test attempt $i app not ready yet "
+                                 echo "wait for app"
+				 sleep 5
+                        done
+                         
+                        echo "http health check failed"
+                        exit 1
+                        
                 '''
 	   }
 	}
