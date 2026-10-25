@@ -161,11 +161,10 @@ pipeline {
 		echo "test production health"
 		sh '''
                 	for i in (seq 1 5); do 
-			     if curl -fsS http://localhost:8000/health ; then
+			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
                                 exit 0
 			     fi 
-                             else
                                  echo "after test attempt $i app not ready yet "
                                  echo "wait for app"
 				 sleep 5
