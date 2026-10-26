@@ -25,7 +25,19 @@ pipeline {
                    python3 -m pytest -v
                 ''' 
 		}
-	               }
+	        }
+
+            stage('code quality test') {
+                steps {
+                   echo "run code quality check"
+		   sh '''
+                   set -eu 
+                   python3.11 -m pip install -r requirements.txt
+                   python3.11 -m pip install ruff pip-audit pytest-cov
+                   ruff check app tests  
+		   '''
+		}
+	    }
             stage('build docker iamge') {
 		steps {
 		   echo "build docker image"
