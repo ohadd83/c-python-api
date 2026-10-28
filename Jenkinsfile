@@ -173,7 +173,7 @@ pipeline {
 		echo "test production health"
 		sh '''
                 	for i in $(seq 1 3); do 
-			     if curl -fsS http://localhost:8000/health; then
+			     if curl -fsS http://localhost:8003/health; then
 				echo "health check test passed "
                              	if curl -fsS http://localhost:8000/products/1; then
                                 	echo "healthcheck and products check passed"
