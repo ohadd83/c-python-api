@@ -198,7 +198,7 @@ pipeline {
         
         stage (" record successful deployment") {
 		steps {
-                    writefile(
+                    writeFile(
                        file: env.$ROLLBACK_FILE,
 		       text: "$BUILD_NUMBER"
 		)
