@@ -199,7 +199,7 @@ pipeline {
         stage (" record successful deployment") {
 		steps {
                     writeFile(
-                       file: env.$ROLLBACK_FILE,
+                       file: env.ROLLBACK_FILE,
 		       text: "${BUILD_NUMBER}"
 		)
                 echo "record successful deployment: ${BUILD_NUMBER}"
