@@ -6,7 +6,7 @@ pipeline {
         APP_NAME= "c-api"
 	IMAGE_NAME= 'ohadd306/c-api'
 	IMAGE_TAG="${BUILD_NUMBER}"
-        ROLLBACK_FILE="${/var/lib/jenkins/rollback/c_api_python/last_successful_tag}"
+        ROLLBACK_FILE="/var/lib/jenkins/rollback/c_api_python/last_successful_tag"
 	}
 
 	stages {
