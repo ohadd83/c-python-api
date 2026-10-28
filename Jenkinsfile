@@ -6,7 +6,7 @@ pipeline {
         APP_NAME= "c-api"
 	IMAGE_NAME= 'ohadd306/c-api'
 	IMAGE_TAG="${BUILD_NUMBER}"
-
+        ROLLBACK_FILE="${/var/lib/jenkins/rollback/c_api_python/last_successful_tag}"
 	}
 
 	stages {
@@ -175,7 +175,7 @@ pipeline {
                 	for i in $(seq 1 3); do 
 			     if curl -fsS http://localhost:8000/health; then
 				echo "health check test passed "
-                             	if curl -fsS http://localhost:8000/products/123; then
+                             	if curl -fsS http://localhost:8000/products/1; then
                                 	echo "healthcheck and products check passed"
                                 	exit 0
 				else 
@@ -195,8 +195,19 @@ pipeline {
                 '''
 	   }
 	}
+        
+        stage (" record successful deployment") {
+		steps {
+                    writefile(
+                       file: env.$ROLLBACK_FILE,
+		       text: "$BUILD_NUMBER"
+		)
+                echo "record successful deployment: ${BUILD_NUMBER}"
+		}
 
-          
+        }
+
+
 
 
 	}
