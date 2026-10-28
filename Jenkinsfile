@@ -224,11 +224,17 @@ pipeline {
                    echo """
                    Rollback proccess starts
                    ================================
+                   """
+                   sh '''
                    ROLLBACK_TAG= $(cat /var/lib/jenkins/rollback/c_api_python/last_successful_tag)
                    docker pull ${IMAGE_NAME}:${IMAGE_TAG}
                    docker stop ${APP_NAME} 
                    docker rm ${APP_NAME}
                    docker run -d --name ${APP_NAME} -p 8000:8000 ${IMAGE_NAME}:${ROLLBACK_TAG}
+		   '''
+                   echo """
+                   ===============================
+                   Rollback proccess finished
 		   """
 
 		}
