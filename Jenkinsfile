@@ -207,6 +207,7 @@ pipeline {
 
         }
 
+      }
 
         post {
 		success {	
@@ -240,6 +241,6 @@ pipeline {
 		}
 	}
 
-}
+
 }
 
